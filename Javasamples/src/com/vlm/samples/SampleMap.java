@@ -21,6 +21,7 @@ public class SampleMap {
 		employeeMap.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(entry -> {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		});
+		//TODO fix this
 		employeeMap.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(entry -> {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		});

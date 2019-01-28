@@ -70,6 +70,7 @@ public class SampleStreamMax {
 		    });
 		
 		//Broken down into steps
+		//TODO is this possible?
 		//mapping a Employee onto the employee id
 		// Wont work! Function<Integer> functionId = (Employee::getId);
 		// TODO Remove Spurious cast to get it working... (Collector<Employee, Integer, Map<Integer, Object>>)
