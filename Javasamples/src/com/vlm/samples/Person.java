@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
-	private String firstName, lastName;
+	private String firstName, lastName, address;
 	private List<Person> dependents;
 	
 	public Person(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dependents = new ArrayList<Person>();
+	}
+	public Person(String firstName, String lastName, String address) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dependents = new ArrayList<Person>();
+		this.address = address;
 	}
 	
 	public Person(String firstName, String lastName, List<Person> dependents) {
@@ -38,5 +44,13 @@ public class Person {
 	}
 	public void addDependent(Person dependent) {
 		this.dependents.add(dependent);
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

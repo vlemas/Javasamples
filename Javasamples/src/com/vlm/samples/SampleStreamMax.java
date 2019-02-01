@@ -69,23 +69,7 @@ public class SampleStreamMax {
 		        System.out.println(entry.getKey() + ": " + entry.getValue());
 		    });
 		
-		//Broken down into steps
-		//TODO is this possible?
-		//mapping a Employee onto the employee id
-		// Wont work! Function<Integer> functionId = (Employee::getId);
-		// TODO Remove Spurious cast to get it working... (Collector<Employee, Integer, Map<Integer, Object>>)
-		//toMap method: static <T,K,U> Collector<T,?,Map<K,U>>	toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)
-		//T = Employee, K = Integer???, U = Employee
-		//T and U are employee so use Function.identity()
-		List<EmployeeInteger> employeeIntegers = Arrays.asList(new EmployeeInteger(1, "Peter Gibbons"),
-				new EmployeeInteger(2, "Samir Nagheenanajar"), new EmployeeInteger(3, "Michael Bolton"),
-				new EmployeeInteger(4, "Milton Waddams"));
-
-	
-		Collector<EmployeeInteger, Integer, Map<Integer, EmployeeInteger>> employeeCollector =  toMap(EmployeeInteger::getId, Function.identity());
-		Stream<EmployeeInteger> employeesStream = employeeIntegers.stream();
-		Map<Integer, Object> employeeStepMap = (Map<Integer, Object>) employeesStream.collect(employeeCollector);
-
+		
 	}
 
 }

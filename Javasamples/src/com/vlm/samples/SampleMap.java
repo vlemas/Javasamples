@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import static java.util.stream.Collectors.toMap;
+import static java.util.Comparator.comparing;
+
 // From https://nofluffjuststuff.com/magazine/2016/09/time_to_really_learn_generics_a_java_8_perspective#sort_by_key
 public class SampleMap {
 
@@ -21,10 +23,13 @@ public class SampleMap {
 		employeeMap.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(entry -> {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		});
-		//TODO fix this
-		employeeMap.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(entry -> {
-			System.out.println(entry.getKey() + ": " + entry.getValue());
-		});
+		// now we have to use the overloaded version of comparingByValue that receives a
+		// Comparator
+		System.out.println("Sorted by value:");
+		employeeMap.entrySet().stream().sorted(Map.Entry.comparingByValue(comparing(Employee::getName)))
+				.forEach(entry -> {
+					System.out.println(entry.getKey() + ": " + entry.getValue());
+				});
 
 	}
 
