@@ -2,7 +2,7 @@ package com.vlm.oracletutorial.classesandobjects;
 
 import java.util.function.Function;
 
-public class DataStructure {
+public class DataStructure{
     
     // Create an array
     private final static int SIZE = 15;
@@ -17,7 +17,7 @@ public class DataStructure {
     
    
     
-    interface DataStructureIterator extends java.util.Iterator<Integer> { } 
+    interface DataStructureIterator extends java.util.Iterator<Integer>  { } 
 
     // Inner class implements the DataStructureIterator interface,
     // which extends the Iterator<Integer> interface
@@ -79,6 +79,20 @@ public class DataStructure {
     }
     
     
+    public static  Boolean isEvenIndex(Integer index) {
+    	if (index % 2 == 0) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
+    public static  Boolean isOddIndex(Integer index) {
+    	if (index % 2 != 0) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    } 
     public static void main(String s[]) {
         
         // Fill the array with integer values and print out only
@@ -108,6 +122,13 @@ public class DataStructure {
                 return retValue;
             }
         });
+        System.out.println("print even index elements using a Lambda function");
+        ds.print(value -> (value % 2) == 0);
+        System.out.println("print odd index elements using a Lambda function");
         ds.print(value -> (value % 2) != 0);
+        
+        System.out.println("print even index elements using a method reference");
+        ds.print(DataStructure::isEvenIndex);
+        ds.print(DataStructure::isOddIndex);
     }
 }
