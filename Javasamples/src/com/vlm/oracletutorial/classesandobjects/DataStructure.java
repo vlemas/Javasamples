@@ -68,9 +68,9 @@ public class DataStructure{
     	int nextIndex = 0;
     	 
     	while (nextIndex <= SIZE - 1) {
-    		Integer retValue = Integer.valueOf(arrayOfInts[nextIndex]);
+    		Integer valueFromArray = Integer.valueOf(arrayOfInts[nextIndex]);
     	   	if (iterator.apply(nextIndex)) {
-    		System.out.print(retValue + " ");
+    		System.out.print(valueFromArray + " ");
     		}
     		nextIndex += 1;
     	}
